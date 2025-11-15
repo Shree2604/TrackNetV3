@@ -270,8 +270,6 @@ def write_pred_video(video_file, pred_dict, save_file, traj_len=8, label_df=None
     cap = cv2.VideoCapture(video_file)
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     w, h = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
-    fourcc = int(cap.get(cv2.CAP_PROP_FOURCC))
-
     # Read ground truth label if exists
     if label_df is not None:
         f_i, x, y, vis = label_df['Frame'], label_df['X'], label_df['Y'], label_df['Visibility']
@@ -279,7 +277,12 @@ def write_pred_video(video_file, pred_dict, save_file, traj_len=8, label_df=None
     # Read prediction result
     x_pred, y_pred, vis_pred = pred_dict['X'], pred_dict['Y'], pred_dict['Visibility']
 
-    # Video config
+    # Video config with compatible codec
+    if '.mp4' in save_file.lower():
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # MPEG-4 codec for .mp4
+    else:
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')  # XVID codec as fallback
+    
     out = cv2.VideoWriter(save_file, fourcc, fps, (w, h))
     
     # Create a queue for storing trajectory
