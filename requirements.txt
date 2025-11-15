@@ -4,8 +4,9 @@ opencv-python-headless>=4.7.0.72
 pandas>=1.5.3
 Pillow>=10.0.0
 plotly>=5.15.0
+--extra-index-url https://download.pytorch.org/whl/cu116
 torch==1.12.1+cu116
 torchvision==0.13.1+cu116
 torchaudio==0.12.1
---extra-index-url https://download.pytorch.org/whl/cu116
 parse>=1.19.0
+tqdm>=4.65.0
