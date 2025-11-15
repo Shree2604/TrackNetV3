@@ -1,8 +1,9 @@
-dash==2.5.1
-numpy==1.22.4
-opencv_python==4.4.0.46
-pandas==2.0.0
-Pillow==10.0.0
-plotly==5.8.2
-torch==1.10.0
-parse
+dash>=2.11.0
+numpy>=1.23.5
+opencv-python-headless>=4.7.0.72
+pandas>=2.0.3
+Pillow>=10.0.0
+plotly>=5.15.0
+torch>=2.0.1
+torchvision>=0.15.2
+parse>=1.19.0
