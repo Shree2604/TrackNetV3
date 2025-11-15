@@ -1,5 +1,5 @@
 dash>=2.11.0
-numpy>=1.21.0
+numpy>=1.21.0,<2.0.0
 opencv-python-headless>=4.7.0.72
 pandas>=1.5.3
 Pillow>=10.0.0
